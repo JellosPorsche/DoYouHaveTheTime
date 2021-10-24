@@ -1,0 +1,52 @@
+﻿@page "/"
+@inject HttpClient Http
+
+    <audio id="audio" src="sample-data/stellar.mp3" autoplay="false"></audio>
+    <div style="text-align:center">
+        <a class="hover_image" href="#">
+            <!-- path/to/first/visible/image: -->
+            <img onclick="document.getElementById('audio').play()" style="margin-left: auto; margin-right: auto; width: 20vw; min-width: 250px;" src="sample-data/porsche_1.png" />
+            <!-- path/to/hover/visible/image: -->
+            <img onclick="document.getElementById('audio').play()" style="margin-left: auto; margin-right: auto; width: 20vw; min-width: 250px;" src="sample-data/porsche_2.png" class="hide" />
+        </a>
+    </div>
+
+    <h1 style="text-align:center">If Jello had spent <span style="color: green">$9,000</span> on XLM when it was <span style="color: green">$0.045</span> instead of his Porsche Cayenne,</h1>
+    <h1 style="text-align:center">he would now have:</h1>
+
+
+    @if (@lost_profit_str == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <h1 style="text-align: center; padding-bottom: 100px; color: green">@lost_profit_str</h1>
+    }
+
+    @if (@xml_price == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <h1 style="text-align:center">Current XLM price: <span style="color: green">$@xml_price.USD</span></h1>
+    }
+
+
+
+    @code {
+        private Price xml_price;
+        private string lost_profit_str;
+
+        protected override async Task OnInitializedAsync()
+        {
+            xml_price = await Http.GetFromJsonAsync<Price>("https://min-api.cryptocompare.com/data/price?fsym=XLM&tsyms=USD");
+            lost_profit_str = (Convert.ToDouble(xml_price.USD) * 200000.0).ToString("C2");
+        }
+
+        public class Price
+        {
+            public decimal USD { get; set; } = 0;
+        }
+    }
