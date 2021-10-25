@@ -1,199 +1,1912 @@
-﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+﻿#hades {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 
-a, .btn-link {
-    color: #0366d6;
+@supports((-webkit-backdrop-filter:none) or (backdrop-filter:none)) {
+    #hades {
+        background-color: rgba(85,85,85,.3333333333333333)
+    }
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+@supports not ((-webkit-backdrop-filter:none) or (backdrop-filter:none)) {
+    #hades {
+        background: rgba(46,102,187,.95)
+    }
 }
 
-app {
-    position: relative;
+#hades .ohm-popover {
+    max-width: 500px;
     display: flex;
     flex-direction: column;
+    background: rgba(0,0,0,.2);
 }
 
-.top-row {
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-}
-
-.main {
-    flex: 1;
-}
-
-    .main .top-row {
-        background-color: #f7f7f7;
-        border-bottom: 1px solid #d6d5d5;
-        justify-content: flex-end;
+    #hades .ohm-popover h3 {
+        align-self: center;
+        justify-self: center;
+        width: 75%;
+        text-align: center
     }
 
-        .main .top-row > a, .main .top-row .btn-link {
-            white-space: nowrap;
-            margin-left: 1.5rem;
+    #hades .ohm-popover label {
+        margin: 20px 10px 4px
+    }
+
+    #hades .ohm-popover .help-text {
+        margin: 10px
+    }
+
+#hades .mobile .ohm-popover {
+    max-width: 400px
+}
+
+#hades .hades-title {
+    font-family: Montserrat SemiBold;
+    font-weight: 600;
+    font-size: 32px;
+    color: #fff;
+    text-align: center
+}
+
+#hades .cross-wrap {
+    display: flex
+}
+
+#hades .card-content {
+    margin: 0 30px;
+    width: auto
+}
+
+    #hades .card-content .input-lable {
+        font-family: Montserrat Medium;
+        font-weight: 500;
+        font-size: 16px;
+        color: #fff
+    }
+
+    #hades .card-content .percent {
+        font-family: Montserrat SemiBold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: #fff
+    }
+
+    #hades .card-content .help-text {
+        margin: 5px 0
+    }
+
+        #hades .card-content .help-text .text-bond-desc {
+            font-family: Montserrat Light;
+            font-weight: 300;
+            font-size: 12px;
+            color: hsla(0,0%,100%,.6)
         }
 
-.main .top-row a:first-child {
-    overflow: hidden;
-    text-overflow: ellipsis;
+#hades .bond-input {
+    background: hsla(0,0%,100%,.2);
+    border: 1px solid hsla(0,0%,100%,.2);
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 20px
+}
+
+    #hades .bond-input .MuiOutlinedInput-input {
+        font-family: Montserrat Medium;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        color: hsla(0,0%,100%,.6)
+    }
+
+    #hades .bond-input .MuiOutlinedInput-notchedOutline {
+        border-color: hsla(0,0%,100%,.2) !important
+    }
+
+#bond-view {
+    position: absolute !important;
+    width: 100%;
+    height: 100%;
+    z-index: 69
+}
+
+@supports((-webkit-backdrop-filter:none) or (backdrop-filter:none)) {
+    #bond-view .MuiBackdrop-root {
+        background: hsla(0,0%,39.2%,.1) !important;
+    }
+
+        #bond-view .MuiBackdrop-root .ohm-card {
+            opacity: 1 !important;
+            height: auto
+        }
+}
+
+@supports not ((-webkit-backdrop-filter:none) or (backdrop-filter:none)) {
+    #bond-view .MuiBackdrop-root {
+        background: rgba(46,102,187,.95)
+    }
+
+        #bond-view .MuiBackdrop-root .ohm-card {
+            height: auto
+        }
+}
+
+#bond-view .ohm-modal {
+    max-width: 688px;
+    min-height: 605px
+}
+
+#bond-view .ohm-card {
+    max-width: 803px
+}
+
+#bond-view .bond-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+    #bond-view .bond-header .bond-header-logo {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: row
+    }
+
+        #bond-view .bond-header .bond-header-logo .ohm-logo-bg {
+            height: 40px !important;
+            width: 40px !important;
+            padding: 8px !important;
+            margin-left: 0
+        }
+
+        #bond-view .bond-header .bond-header-logo .bond-header-name {
+            text-align: center;
+            margin-left: 10px;
+            font-family: Montserrat SemiBold;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            color: #fff
+        }
+
+#bond-view .bond-data {
+    margin: 10px 0 0
+}
+
+#bond-view .bond-price-data .bond-price-data-title {
+    font-family: Montserrat Medium;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: hsla(0,0%,100%,.6)
+}
+
+#bond-view .bond-price-data .bond-price-data-value {
+    font-family: Montserrat Bold;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #fff
+}
+
+#bond-view .bond-price-data-row {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 23px
+}
+
+    #bond-view .bond-price-data-row h4 {
+        margin-bottom: 0
+    }
+
+    #bond-view .bond-price-data-row h3.price {
+        font-weight: 600 !important
+    }
+
+#bond-view .ohm-input {
+    min-width: 50%;
+    max-width: 408px;
+    margin: 5px
+}
+
+    #bond-view .ohm-input .avax-checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center
+    }
+
+        #bond-view .ohm-input .avax-checkbox input {
+            height: 15px;
+            width: 15px
+        }
+
+        #bond-view .ohm-input .avax-checkbox p {
+            font-family: Montserrat SemiBold;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            color: #fff;
+            margin-left: 5px
+        }
+
+.transaction-button {
+    min-width: 185px !important;
+    max-width: 408px;
+    width: 100%;
+    margin: 5px !important
+}
+
+.mobile #bond-view .ohm-card .card-content, .mobile #bond-view .ohm-card .card-content .bond-toggle-row {
+    justify-content: space-evenly !important
+}
+
+    .mobile #bond-view .ohm-card .card-content .input-row {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        align-content: center
+    }
+
+        .mobile #bond-view .ohm-card .card-content .input-row .input-group.ohm-input-group {
+            margin: 10px !important;
+            width: 75%;
+            height: 50px
+        }
+
+        .mobile #bond-view .ohm-card .card-content .input-row div.stake-button {
+            width: 75%;
+            margin-left: 0;
+            margin-top: 15px;
+            height: 50px;
+            font-size: 1.3em !important
+        }
+
+.bond-modal {
+    background-color: rgba(0,0,0,.2) !important;
+}
+
+.bond-one-table .MuiTabs-indicator {
+    background-color: #fff;
+    height: 1px
+}
+
+.bond-one-table .MuiTab-wrapper {
+    font-family: Montserrat SemiBold;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff
+}
+
+.bond-input {
+    background: hsla(0,0%,100%,.2);
+    border: 1px solid hsla(0,0%,100%,.2);
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 20px
+}
+
+    .bond-input .MuiOutlinedInput-input {
+        font-family: Montserrat Medium;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        color: hsla(0,0%,100%,.6)
+    }
+
+    .bond-input .MuiOutlinedInput-notchedOutline {
+        border-color: hsla(0,0%,100%,.2) !important
+    }
+
+    .bond-input .stake-input-btn {
+        cursor: pointer
+    }
+
+        .bond-input .stake-input-btn p {
+            font-family: Montserrat SemiBold;
+            font-weight: 600;
+            font-size: 18px;
+            color: #fff
+        }
+
+.bond-approve-btn {
+    background: hsla(0,0%,100%,.2);
+    box-shadow: 0 0 10px rgba(44,39,109,.1);
+    border-radius: 10px;
+    width: 408px;
+    height: 58px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+    .bond-approve-btn p {
+        font-family: Montserrat SemiBold;
+        font-weight: 600;
+        font-size: 18px;
+        color: #fff
+    }
+
+.help-text .help-text-desc {
+    font-family: Montserrat Light;
+    font-weight: 300;
+    font-size: 14px;
+    text-align: center;
+    color: hsla(0,0%,100%,.6)
+}
+
+.bond-balance-title {
+    font-family: Montserrat Medium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff
+}
+
+@media screen and (max-width:417px) {
+    .bond-price-data-title {
+        font-size: 17px !important
+    }
+
+    .bond-price-data-value {
+        font-size: 19px !important
+    }
+}
+
+#choose-bond-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden
+}
+
+    #choose-bond-view .ohm-card .bond-hero h4 {
+        font-weight: 600 !important
+    }
+
+        #choose-bond-view .ohm-card .bond-hero h4 .MuiSkeleton-root {
+            margin: auto
+        }
+
+    #choose-bond-view .ohm-logo-bg {
+        margin-left: 0;
+        border-radius: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 40px;
+        width: 40px
+    }
+
+    #choose-bond-view .bond-data-card {
+        margin: auto !important
+    }
+
+        #choose-bond-view .bond-data-card .bond-pair {
+            display: flex !important;
+            align-items: center;
+            justify-content: left;
+            margin-bottom: 15px
+        }
+
+            #choose-bond-view .bond-data-card .bond-pair .MuiBox-root {
+                margin-right: 10px
+            }
+
+            #choose-bond-view .bond-data-card .bond-pair .bond-name svg {
+                margin-left: 5px;
+                vertical-align: middle;
+                font-size: 15px
+            }
+
+        #choose-bond-view .bond-data-card .data-row {
+            margin-bottom: 13px
+        }
+
+            #choose-bond-view .bond-data-card .data-row .bond-price {
+                display: flex;
+                align-items: center
+            }
+
+                #choose-bond-view .bond-data-card .data-row .bond-price svg {
+                    margin-right: 5px
+                }
+
+        #choose-bond-view .bond-data-card .bond-link {
+            margin-top: 10px;
+            text-align: center
+        }
+
+            #choose-bond-view .bond-data-card .bond-link a {
+                width: 96%
+            }
+
+    #choose-bond-view .currency-icon {
+        display: inline-block;
+        min-width: 15px
+    }
+
+    #choose-bond-view .MuiTable-root {
+        margin: 10px 0
+    }
+
+    #choose-bond-view .MuiTableRow-head .MuiTableCell-alignLeft {
+        padding-left: 20px
+    }
+
+    #choose-bond-view .MuiTableCell-root p {
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: space-evenly;
+        white-space: nowrap
+    }
+
+        #choose-bond-view .MuiTableCell-root p img {
+            margin-right: 3px
+        }
+
+    #choose-bond-view .MuiTableCell-root.MuiTableCell-alignLeft {
+        display: flex
+    }
+
+    #choose-bond-view .MuiTableBody-root .MuiTableRow-root .MuiTableCell-alignLeft {
+        justify-content: space-between
+    }
+
+        #choose-bond-view .MuiTableBody-root .MuiTableRow-root .MuiTableCell-alignLeft div.ohm-pairs {
+            width: 33%;
+            vertical-align: middle !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-bottom: 0 !important
+        }
+
+            #choose-bond-view .MuiTableBody-root .MuiTableRow-root .MuiTableCell-alignLeft div.ohm-pairs .ohm-pairs div.bond-name p, #choose-bond-view .MuiTableBody-root .MuiTableRow-root .MuiTableCell-alignLeft div.ohm-pairs .ohm-pairs svg {
+                align-self: center !important;
+                line-height: 100% !important;
+                font-weight: 700 !important;
+                margin-bottom: 0 !important;
+                padding: 0 !important;
+                font-family: inherit;
+                vertical-align: text-top !important
+            }
+
+            #choose-bond-view .MuiTableBody-root .MuiTableRow-root .MuiTableCell-alignLeft div.ohm-pairs .ohm-logo-bg {
+                margin-left: 0;
+                border-radius: 20px;
+                height: 40px;
+                width: 40px
+            }
+
+        #choose-bond-view .MuiTableBody-root .MuiTableRow-root .MuiTableCell-alignLeft div.bond-name {
+            width: 60%;
+            margin-left: 8px !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            align-items: flex-start
+        }
+
+            #choose-bond-view .MuiTableBody-root .MuiTableRow-root .MuiTableCell-alignLeft div.bond-name p {
+                margin-bottom: unset !important;
+                line-height: 140% !important
+            }
+
+            #choose-bond-view .MuiTableBody-root .MuiTableRow-root .MuiTableCell-alignLeft div.bond-name svg {
+                margin-left: 3px !important;
+                font-size: 1.2em !important
+            }
+
+.bond-title {
+    font-family: Montserrat Bold;
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff
+}
+
+.bond-hero .bond-hero-title {
+    font-family: Montserrat Medium;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: hsla(0,0%,100%,.6)
+}
+
+.bond-hero .bond-hero-value {
+    font-family: Montserrat Bold;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column
+}
+
+.bond-table-title {
+    line-height: 17px
+}
+
+.bond-name-title, .bond-table-title {
+    font-family: Montserrat SemiBold;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff
+}
+
+.bond-table-btn {
+    background: hsla(0,0%,100%,.2);
+    border: 1px solid #2c276d;
+    border-radius: 10px;
+    padding: 6px 35.5px;
+    text-align: center
+}
+
+    .bond-table-btn p {
+        font-family: Montserrat Semibold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        color: #fff
+    }
+
+@media screen and (max-width:417px) {
+    .bond-hero-title {
+        font-size: 14px !important
+    }
+
+    .bond-hero-value {
+        font-size: 16px !important
+    }
+}
+
+.ohm-card-container {
+    width: 100%
+}
+
+.rebase-timer {
+    position: relative
+}
+
+    .rebase-timer p {
+        font-family: Montserrat SemiBold;
+        font-weight: 600;
+        font-size: 12px;
+        color: #fff
+    }
+
+#stake-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+    #stake-view .rebase-timer {
+        margin: 0 !important;
+        line-height: 110% !important
+    }
+
+    #stake-view .stake-tab-buttons {
+        margin-bottom: 20px
+    }
+
+    #stake-view .stake-tab-panel > div.MuiBox-root, #stake-view .stake-table-panel {
+        width: 100%;
+        padding: 0
+    }
+
+    #stake-view .mobile .stake-tab-panel, #stake-view .mobile .stake-tab-panel > div.MuiBox-root {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center
+    }
+
+    #stake-view .ohm-card .header {
+        min-height: 3em
+    }
+
+    #stake-view .ohm-card.secondary .card-header {
+        min-height: 33px !important;
+        height: 20px
+    }
+
+.migrate-sohm-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    color: #f08080;
+    line-height: 30px
+}
+
+    .migrate-sohm-button svg {
+        margin-right: 8px;
+        color: inherit
+    }
+
+    .migrate-sohm-button.complete {
+        color: #35ee66 !important
+    }
+
+.stake-top-metrics {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    margin-top: 10px
+}
+
+    .stake-top-metrics h5 {
+        font-weight: 400
+    }
+
+    .stake-top-metrics h4 {
+        font-weight: 500
+    }
+
+    .stake-top-metrics .stake-apy, .stake-top-metrics .stake-index, .stake-top-metrics .stake-tvl {
+        flex: 1 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden
+    }
+
+.mobile .stake-top-metrics .stake-apy, .mobile .stake-top-metrics .stake-index, .mobile .stake-top-metrics .stake-tvl {
+    align-items: flex-start
+}
+
+.mobile .stake-apy {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.ohm-logo-tiny {
+    height: 14px;
+    width: 14px;
+    vertical-align: middle;
+    background-color: transparent;
+    align-self: center;
+    justify-self: center
+}
+
+.logo-holder {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    background: none;
+    border: 0 !important;
+    border-radius: inherit;
+    color: #555
+}
+
+.stake-action-area {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 10px
+}
+
+.stake-action-row {
+    justify-content: space-around;
+    align-items: center;
+    height: auto
+}
+
+.mobile .stake-action-row {
+    justify-content: center
+}
+
+.stake-action-row [role=tabpanel] {
+    width: 99%;
+    min-width: 162px;
+    max-width: 220px;
+    margin: 5px
+}
+
+.mobile .stake-action-row {
+    flex-direction: column
+}
+
+    .mobile .stake-action-row [role=tabpanel] {
+        max-width: 100%;
+        width: 100% !important
+    }
+
+.ohm-input {
+    max-width: 542px;
+    width: 100%;
+    margin: 5px !important
+}
+
+.stake-button {
+    align-self: center;
+    width: 100%;
+    min-width: 163px !important;
+    max-width: 542px !important;
+    height: 43px !important
+}
+
+.mobile .stake-button {
+    width: 100% !important;
+    max-width: 542px;
+    align-self: center;
+    justify-self: center
+}
+
+.staking-area {
+    margin: 13px 10px
+}
+
+.stake-lp-button {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important
+}
+
+    .stake-lp-button svg {
+        margin-left: 4px;
+        vertical-align: middle;
+        font-size: 1.1em
+    }
+
+    .stake-lp-button:hover svg {
+        color: inherit
+    }
+
+.stake-user-data {
+    justify-content: center;
+    margin: auto;
+    padding: 0 5px
+}
+
+.mobile .stake-pool .pool-card-top-row, .tablet .stake-pool .pool-card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+    .mobile .stake-pool .pool-card-top-row .ohm-pairs p, .tablet .stake-pool .pool-card-top-row .ohm-pairs p {
+        margin-bottom: 0 !important
+    }
+
+.mobile .stake-pool .pool-data, .tablet .stake-pool .pool-data {
+    margin-top: 15px;
+    width: 100%
+}
+
+    .mobile .stake-pool .pool-data .pool-data-row, .tablet .stake-pool .pool-data .pool-data-row {
+        display: flex;
+        justify-content: space-between;
+        line-height: 225%
+    }
+
+.mobile .stake-pool .stake-lp-button, .tablet .stake-pool .stake-lp-button {
+    margin-top: 10px
+}
+
+    .mobile .stake-pool .stake-lp-button svg, .tablet .stake-pool .stake-lp-button svg {
+        margin-left: 10px !important
+    }
+
+.stake-wallet-notification {
+    text-align: center
+}
+
+    .stake-wallet-notification .wallet-menu {
+        display: flex;
+        margin-bottom: 10px
+    }
+
+        .stake-wallet-notification .wallet-menu .form-connect-btn {
+            background: hsla(0,0%,100%,.2);
+            box-shadow: 0 0 10px rgba(44,39,109,.1);
+            border-radius: 10px;
+            padding: 14px 58px;
+            cursor: pointer;
+            margin: auto
+        }
+
+            .stake-wallet-notification .wallet-menu .form-connect-btn p {
+                font-family: Montserrat SemiBold;
+                font-weight: 600;
+                font-size: 18px;
+                color: #fff
+            }
+
+    .stake-wallet-notification .desc-text {
+        font-family: Montserrat Light;
+        font-weight: 300;
+        font-size: 14px;
+        color: hsla(0,0%,100%,.6)
+    }
+
+.single-stake-title {
+    font-family: Montserrat Bold;
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 4px
+}
+
+.single-stake-subtitle {
+    font-family: Montserrat Medium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: hsla(0,0%,100%,.6);
+    margin-bottom: 2px
+}
+
+.single-stake-subtitle-value {
+    font-family: Montserrat Bold;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #fff
+}
+
+.stack-table-title {
+    font-family: Montserrat SemiBold;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: hsla(0,0%,100%,.6)
+}
+
+.stack-table-value {
+    font-family: Montserrat Bold;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff
+}
+
+.stack-table-btn {
+    background: hsla(0,0%,100%,.2);
+    box-shadow: 0 0 10px rgba(44,39,109,.1);
+    border-radius: 10px;
+    padding: 14px 32px;
+    cursor: pointer;
+    text-align: center
+}
+
+    .stack-table-btn p {
+        font-family: Montserrat SemiBold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: #fff
+    }
+
+.stake-tab-buttons .MuiTabs-indicator {
+    background-color: #fff;
+    height: 1px
+}
+
+.stake-tab-buttons .MuiTab-wrapper {
+    font-family: Montserrat SemiBold;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff
+}
+
+.stake-tab-panel .stake-tab-panel-btn {
+    background: hsla(0,0%,100%,.2);
+    box-shadow: 0 0 10px rgba(44,39,109,.1);
+    border-radius: 10px;
+    padding: 14px 46px;
+    cursor: pointer;
+    text-align: center
+}
+
+    .stake-tab-panel .stake-tab-panel-btn p {
+        font-family: Montserrat SemiBold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: #fff
+    }
+
+.help-text .text-desc {
+    font-family: Montserrat Light;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: hsla(0,0%,100%,.6)
+}
+
+.stake-user-data .data-row .data-row-name {
+    font-family: Montserrat Medium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff
+}
+
+.stake-user-data .data-row .data-row-value {
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff
+}
+
+.stake-input {
+    background: hsla(0,0%,100%,.2);
+    border: 1px solid hsla(0,0%,100%,.2);
+    border-radius: 10px;
+    outline: none
+}
+
+    .stake-input .MuiOutlinedInput-input {
+        font-family: Montserrat Medium;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        color: hsla(0,0%,100%,.6)
+    }
+
+    .stake-input .MuiOutlinedInput-notchedOutline {
+        border-color: hsla(0,0%,100%,.2) !important
+    }
+
+    .stake-input .stake-input-btn {
+        cursor: pointer
+    }
+
+        .stake-input .stake-input-btn p {
+            font-family: Montserrat SemiBold;
+            font-weight: 600;
+            font-size: 18px;
+            color: #fff
+        }
+
+@media screen and (max-width:417px) {
+    .single-stake-subtitle, .single-stake-subtitle-value {
+        font-size: 18px !important
+    }
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    min-width: 280px;
+    z-index: 2
 }
 
-    .sidebar .top-row {
-        background-color: rgba(0,0,0,0.4);
+.dapp-sidebar, .MuiDrawer-paper .MuiPaper-root, .sidebar {
+    border-radius: 0 !important
+}
+
+.dapp-sidebar {
+    height: 100vh
+}
+
+.dapp-menu-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+    .dapp-menu-item p {
+        font-weight: 600;
+        font-size: 16px;
+        color: #fff;
+        font-family: Montserrat SemiBold
     }
 
-    .sidebar .navbar-brand {
-        font-size: 1.1rem;
-    }
-
-    .sidebar .oi {
-        width: 2rem;
-        font-size: 1.1rem;
-        vertical-align: text-top;
-        top: -2px;
-    }
-
-    .sidebar .nav-item {
-        font-size: 0.9rem;
-        padding-bottom: 0.5rem;
-    }
-
-        .sidebar .nav-item:first-of-type {
-            padding-top: 1rem;
-        }
-
-        .sidebar .nav-item:last-of-type {
-            padding-bottom: 1rem;
-        }
-
-        .sidebar .nav-item a {
-            color: #d7d7d7;
-            border-radius: 4px;
-            height: 3rem;
-            display: flex;
-            align-items: center;
-            line-height: 3rem;
-        }
-
-            .sidebar .nav-item a.active {
-                background-color: rgba(255,255,255,0.25);
-                color: white;
-            }
-
-            .sidebar .nav-item a:hover {
-                background-color: rgba(255,255,255,0.1);
-                color: white;
-            }
-
-.content {
-    padding-top: 1.1rem;
-}
-
-.navbar-toggler {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
-}
-
-.invalid {
-    outline: 1px solid red;
-}
-
-.validation-message {
-    color: red;
-}
-
-.hover_image:hover {
-    text-decoration: none
-}
-/* Optional (avoid undesired underscore if a is used as wrapper) */
-.hide {
-    display: none
-}
-/* Do the shift: */
-.hover_image:hover img:first-child {
-    display: none
-}
-
-.hover_image:hover img:last-child {
-    display: inline-block
-}
-
-#blazor-error-ui {
-    background: lightyellow;
-    bottom: 0;
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
-    display: none;
-    left: 0;
-    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
-    position: fixed;
+.branding-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
     width: 100%;
-    z-index: 1000;
+    align-items: center;
+    text-decoration: none;
+    margin: 20px 0 63px
 }
 
-#blazor-error-ui .dismiss {
-    cursor: pointer;
-    position: absolute;
-    right: 0.75rem;
-    top: 0.5rem;
-}
-
-@media (max-width: 767.98px) {
-    .main .top-row:not(.auth) {
-        display: none;
-    }
-
-    .main .top-row.auth {
-        justify-content: space-between;
-    }
-
-    .main .top-row a, .main .top-row .btn-link {
-        margin-left: 0;
-    }
-}
-
-@media (min-width: 768px) {
-    app {
-        flex-direction: row;
-    }
-
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
-
-    .main .top-row {
-        position: sticky;
-        top: 0;
-    }
-
-    .main > div {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
-
-    .navbar-toggler {
-        display: none;
-    }
-
-    .sidebar .collapse {
-        /* Never collapse the sidebar for wide screens */
+    .branding-header .branding-header-icon {
+        width: 50px;
+        -webkit-filter: invert(1);
+        filter: invert(1);
         display: block;
+        margin: 0 auto
+    }
+
+    .branding-header .wallet-link {
+        margin: 10px
+    }
+
+        .branding-header .wallet-link p {
+            color: #fff
+        }
+
+.dapp-menu-top {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-bottom: 33px;
+}
+
+    .dapp-menu-top .dapp-nav {
+        display: flex;
+        flex-flow: column
+    }
+
+.dapp-menu-bottom {
+    height: 40vh;
+    min-height: 30vh
+}
+
+.dapp-menu-links {
+    min-height: 35vh;
+    display: flex;
+    align-items: center
+}
+
+.dapp-nav a {
+    margin-top: 20px;
+    margin-left: 20px;
+    align-items: center;
+    margin-bottom: 20px
+}
+
+    .dapp-nav a svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: -4px
+    }
+
+.dapp-menu-external-links {
+    flex-flow: column
+}
+
+    .dapp-menu-external-links, .dapp-menu-external-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+        .dapp-menu-external-links a {
+            width: 100%;
+            margin-bottom: 20px;
+            font-family: Montserrat SemiBold;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 20px;
+            color: #fff
+        }
+
+            .dapp-menu-external-links a svg {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+                vertical-align: middle
+            }
+
+.bond-discounts {
+    text-align: left;
+    padding-left: 54px
+}
+
+    .bond-discounts a {
+        margin-left: 0;
+        margin-top: 20px;
+        margin-bottom: 20px
+    }
+
+    .bond-discounts p {
+        font-family: Montserrat;
+        font-size: 14px;
+        line-height: 17px;
+        color: hsla(0,0%,100%,.6)
+    }
+
+    .bond-discounts .bond {
+        display: block;
+        padding: unset;
+        margin-bottom: 0 0 1px 0;
+        text-decoration: none !important
+    }
+
+        .bond-discounts .bond .bond-pair-roi {
+            float: right;
+            margin-left: 33px
+        }
+
+.social-row {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    padding: 1.3rem
+}
+
+    .social-row a:hover {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1)
+    }
+
+    .social-row a img {
+        height: 20px;
+        width: 20px
+    }
+
+.mobile .show .dapp-sidebar .dapp-menu-links {
+    flex-flow: row !important;
+    justify-content: center !important
+}
+
+.mobile .show .dapp-sidebar .dapp-menu-external-links {
+    padding-top: 3em;
+    line-height: 200% !important;
+    justify-content: center
+}
+
+.mobile .show .dapp-sidebar .dapp-menu-external-links, .mobile .show .dapp-sidebar .dapp-nav {
+    flex-flow: column !important;
+    justify-content: flex-start;
+    margin: auto
+}
+
+    .mobile .show .dapp-sidebar .dapp-menu-external-links a, .mobile .show .dapp-sidebar .dapp-nav a {
+        padding: 0
+    }
+
+        .mobile .show .dapp-sidebar .dapp-menu-external-links a svg, .mobile .show .dapp-sidebar .dapp-nav a svg {
+            align-self: center
+        }
+
+    .mobile .show .dapp-sidebar .dapp-menu-external-links a {
+        justify-content: left
+    }
+
+    .mobile .show .dapp-sidebar .dapp-nav .dapp-menu-data.discounts {
+        margin-top: 2.5em
+    }
+
+        .mobile .show .dapp-sidebar .dapp-nav .dapp-menu-data.discounts .bond-discounts {
+            display: none
+        }
+
+.button-dapp-menu.active .dapp-menu-item p {
+    text-decoration: underline
+}
+
+#ohm-menu-button {
+    padding: 12px
+}
+
+    #ohm-menu-button svg {
+        margin-right: 3px;
+        color: inherit !important
+    }
+
+.buy-text {
+    color: #fff;
+    font-family: Montserrat Bold
+}
+
+#ohm-popper, #ohm-popper-pending {
+    z-index: 5;
+    background-color: rgba(0,0,0,.011764705882352941);
+    margin-top: 10px;
+    border-radius: 10px
+}
+
+    #ohm-popper-pending .MuiPaper-root.ohm-menu, #ohm-popper .MuiPaper-root.ohm-menu {
+        padding: 16px 6px;
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        max-width: 200px
+    }
+
+        #ohm-popper-pending .MuiPaper-root.ohm-menu button, #ohm-popper .MuiPaper-root.ohm-menu button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 4px;
+            padding-left: 16px
+        }
+
+            #ohm-popper-pending .MuiPaper-root.ohm-menu button:not(:hover), #ohm-popper .MuiPaper-root.ohm-menu button:not(:hover) {
+                background-color: rgba(0,0,0,.011764705882352941) !important
+            }
+
+        #ohm-popper-pending .MuiPaper-root.ohm-menu a svg, #ohm-popper .MuiPaper-root.ohm-menu a svg {
+            vertical-align: middle;
+            font-size: 20px;
+            margin-left: 3px
+        }
+
+        #ohm-popper-pending .MuiPaper-root.ohm-menu hr, #ohm-popper .MuiPaper-root.ohm-menu hr {
+            margin-bottom: 18px
+        }
+
+    #ohm-popper-pending .add-tokens > p, #ohm-popper .add-tokens > p {
+        margin: 15px 0;
+        text-align: center;
+        font-family: Montserrat SemiBold;
+        font-size: 12px;
+        color: #fff
+    }
+
+    #ohm-popper-pending .buy-tokens, #ohm-popper .buy-tokens {
+        padding-bottom: 8px
+    }
+
+.ohm-button {
+    padding: 9px 20px;
+    background: hsla(0,0%,100%,.2);
+    box-shadow: 0 0 10px rgba(44,39,109,.1);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 20px
+}
+
+    .ohm-button p {
+        font-family: Montserrat SemiBold;
+        font-weight: 600;
+        font-size: 18px;
+        color: #fff
+    }
+
+.dapp-topbar {
+    width: 100%;
+    align-items: center
+}
+
+    .dapp-topbar button {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        margin: 6px !important;
+    }
+
+        .dapp-topbar button#hamburger {
+            padding: 11px !important
+        }
+
+        .dapp-topbar button.toggle-button {
+            padding: 9.5px !important
+        }
+
+.tablet .dapp-topbar {
+    justify-content: space-between
+}
+
+.pending-txn-root {
+    z-index: 100;
+    margin-top: 10px
+}
+
+    .pending-txn-root .pending-txn-container {
+        padding: 5px 20px;
+        min-width: 200px
+    }
+
+        .pending-txn-root .pending-txn-container p {
+            font-family: Montserrat;
+            font-size: 16px;
+            color: #fff
+        }
+
+            .pending-txn-root .pending-txn-container p:hover {
+                color: rgba(0,0,255,.3)
+            }
+
+    .pending-txn-root .add-tokens {
+        margin-top: 5px
+    }
+
+        .pending-txn-root .add-tokens .disconect-btn {
+            cursor: pointer;
+            margin: 10px 10px 0;
+            padding: 5px;
+            background: hsla(0,0%,100%,.2);
+            box-shadow: 0 0 10px rgba(44,39,109,.1);
+            border-radius: 10px
+        }
+
+            .pending-txn-root .add-tokens .disconect-btn p {
+                font-family: Montserrat;
+                font-size: 16px;
+                color: #fff;
+                text-align: center
+            }
+
+.caret-down {
+    position: absolute;
+    right: .4rem
+}
+
+.hovered-button .MuiButton-label {
+    margin-right: .5rem;
+    transition: all .33s ease-out
+}
+
+.connect-button {
+    background: hsla(0,0%,100%,.2);
+    box-shadow: 0 0 10px rgba(44,39,109,.1);
+    border-radius: 10px;
+    padding: 9px 19.5px;
+    cursor: pointer
+}
+
+    .connect-button p {
+        font-family: Montserrat SemiBold;
+        font-weight: 600;
+        font-size: 18px;
+        color: #fff
+    }
+
+.not-found-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%
+}
+
+    .not-found-page p {
+        font-family: Montserrat SemiBold;
+        font-weight: 600;
+        font-size: 30px;
+        color: #fff
+    }
+
+.dashboard-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden
+}
+
+    .dashboard-view .dashboard-paper {
+        background-color: transparent !important;
+    }
+
+    .dashboard-view .dashboard-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column
+    }
+
+    .dashboard-view .ohm-card {
+        white-space: nowrap;
+        width: auto;
+        margin: auto
+    }
+
+        .dashboard-view .ohm-card .card-title {
+            font-family: Montserrat Medium;
+            font-weight: 500;
+            font-size: 18px;
+            color: hsla(0,0%,100%,.6)
+        }
+
+        .dashboard-view .ohm-card .card-value {
+            font-family: Montserrat Bold;
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff
+        }
+
+.top-row-data {
+    position: sticky;
+    overflow: hidden;
+    flex-wrap: wrap;
+    z-index: 5
+}
+
+    .top-row-data h5 {
+        font-weight: 600 !important
+    }
+
+@font-face {
+    font-family: "Montserrat SemiBold";
+    src: local("Montserrat SemiBold"),url(../sample-data/Montserrat-SemiBold.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat"),url(../sample-data/Montserrat-Regular.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: "Montserrat Bold";
+    src: local("Montserrat Bold"),url(../sample-data/Montserrat-Bold.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: "Montserrat Medium";
+    src: local("Montserrat Medium"),url(../sample-data/Montserrat-Medium.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: "Montserrat Light";
+    src: local("Montserrat Light"),url(../sample-data/Montserrat-Light.ttf) format("truetype")
+}
+
+* {
+    outline: none;
+    box-sizing: border-box
+}
+
+#root, body, html {
+    font-family: "Square";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box
+}
+
+.app {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: column;
+    flex-direction: column;
+    z-index: 1;
+    background-size: cover;
+    font-family: "Square";
+    overflow: hidden
+}
+
+.MuiDrawer-paperAnchorDockedLeft {
+    border-right: 0 !important
+}
+
+.ohm-card .card-header {
+    width: 100%;
+    min-height: 2rem
+}
+
+    .ohm-card .card-header h5 {
+        font-weight: 600 !important
+    }
+
+.ohm-card .card-content {
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    flex-flow: column;
+    height: 100%
+}
+
+.ohm-card .help-text {
+    margin: 10px 0
+}
+
+.ohm-card .data-row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 12px 0
+}
+
+.ohm-pairs {
+    display: flex;
+    align-items: center
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+    -webkit-appearance: none !important
+}
+
+input[type=number] {
+    -moz-appearance: textfield !important
+}
+
+a:hover svg {
+    color: inherit
+}
+
+.root-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../sample-data/background.90008f25.png);
+    background-size: cover;
+    z-index: -1
+}
+
+p {
+    margin: 0
+}
+
+.web3modal-modal-lightbox {
+    z-index: 10 !important;
+    background: rgba(0,0,0,.2) !important;
+}
+
+    .web3modal-modal-lightbox .web3modal-modal-card {
+        background: rgba(0,0,0,.2);
+        border-radius: 10px
+    }
+
+        .web3modal-modal-lightbox .web3modal-modal-card .web3modal-provider-wrapper {
+            border: 1px solid hsla(0,0%,100%,.1);
+            border-radius: 0;
+            padding: 0
+        }
+
+            .web3modal-modal-lightbox .web3modal-modal-card .web3modal-provider-wrapper .web3modal-provider-container {
+                background-color: transparent;
+                border-radius: 0
+            }
+
+                .web3modal-modal-lightbox .web3modal-modal-card .web3modal-provider-wrapper .web3modal-provider-container:hover {
+                    background-color: rgba(0,0,0,.2)
+                }
+
+                .web3modal-modal-lightbox .web3modal-modal-card .web3modal-provider-wrapper .web3modal-provider-container .web3modal-provider-name {
+                    font-family: Montserrat SemiBold;
+                    font-weight: 600;
+                    font-size: 24px;
+                    text-align: center;
+                    color: #fff
+                }
+
+                .web3modal-modal-lightbox .web3modal-modal-card .web3modal-provider-wrapper .web3modal-provider-container .web3modal-provider-description {
+                    font-family: Montserrat Light;
+                    font-weight: 300;
+                    font-size: 14px;
+                    text-align: center;
+                    color: hsla(0,0%,100%,.6)
+                }
+
+@supports((-webkit-backdrop-filter:none) or (backdrop-filter:none)) {
+    .walletconnect-qrcode__base {
+        background: rgba(0,0,0,.2) !important;
+    }
+}
+
+@supports not ((-webkit-backdrop-filter:none) or (backdrop-filter:none)) {
+    .walletconnect-qrcode__base {
+        background: rgba(46,102,187,.95) !important
+    }
+}
+
+.walletconnect-qrcode__base .walletconnect-modal__base {
+    border-radius: 10px;
+    padding: 30px 20px 20px
+}
+
+@supports((-webkit-backdrop-filter:none) or (backdrop-filter:none)) {
+    .walletconnect-qrcode__base .walletconnect-modal__base {
+        background: rgba(0,0,0,.2);
+    }
+}
+
+@supports not ((-webkit-backdrop-filter:none) or (backdrop-filter:none)) {
+    .walletconnect-qrcode__base .walletconnect-modal__base {
+        background: rgba(0,0,0,.4)
+    }
+}
+
+.walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__header .walletconnect-modal__headerLogo {
+    display: none
+}
+
+.walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__header p {
+    margin-left: 24px;
+    font-family: Montserrat SemiBold;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff
+}
+
+.walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__header .walletconnect-modal__close__wrapper {
+    background: none;
+    right: 23px
+}
+
+    .walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__header .walletconnect-modal__close__wrapper .walletconnect-modal__close__icon .walletconnect-modal__close__line1, .walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__header .walletconnect-modal__close__wrapper .walletconnect-modal__close__icon .walletconnect-modal__close__line2 {
+        border: 1px solid #fff
+    }
+
+.walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__mobile__toggle {
+    margin-bottom: 20px;
+    background: none;
+    width: 60%
+}
+
+    .walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__mobile__toggle .walletconnect-modal__mobile__toggle_selector {
+        height: 1px;
+        background: #fff;
+        top: 34px
+    }
+
+    .walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__mobile__toggle a {
+        font-family: Montserrat SemiBold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer
+    }
+
+        .walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__mobile__toggle.right__selected a:nth-child(2), .walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__mobile__toggle a:last-child {
+            color: hsla(0,0%,100%,.6)
+        }
+
+    .walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__mobile__toggle.right__selected a:last-child {
+        color: #fff
+    }
+
+.walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-qrcode__text {
+    font-family: Montserrat Light;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    text-align: center;
+    color: hsla(0,0%,100%,.6)
+}
+
+.walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-qrcode__image {
+    background: #fff;
+    border-radius: 10px;
+    padding: 13px
+}
+
+.walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__footer {
+    font-family: Montserrat Light;
+    font-weight: 300;
+    font-size: 14px;
+    text-align: center;
+    color: hsla(0,0%,100%,.6)
+}
+
+.walletconnect-qrcode__base .walletconnect-modal__base .walletconnect-modal__base__row h3 {
+    font-family: Montserrat SemiBold;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff
+}
+
+.loader-wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.smaller {
+    font-size: 75%;
+    font-family: Montserrat SemiBold;
+}
+
+.trans-button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.landing-root {
+    min-height: 100vh;
+    background-image: url(../sample-data/landing.d4c2c6a0.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column
+}
+
+    .landing-root .landing-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
+
+        .landing-root .landing-main .landing-main-title-wrap {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px
+        }
+
+            .landing-root .landing-main .landing-main-title-wrap p {
+                font-family: Montserrat Bold;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 55px;
+                color: #fff
+            }
+
+        .landing-root .landing-main .landing-main-help-text-wrap {
+            text-align: center;
+            margin-bottom: 30px
+        }
+
+            .landing-root .landing-main .landing-main-help-text-wrap p {
+                font-family: Montserrat Medium;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                color: #fff
+            }
+
+        .landing-root .landing-main .landing-main-btns-wrap {
+            display: flex;
+            flex-direction: row
+        }
+
+            .landing-root .landing-main .landing-main-btns-wrap a {
+                text-decoration: none
+            }
+
+            .landing-root .landing-main .landing-main-btns-wrap .landing-main-btn {
+                margin: 0 15px;
+                padding: 14px 26px;
+                max-width: 200px;
+                background: hsla(0,0%,100%,.2);
+                box-shadow: 0 0 10px rgba(44,39,109,.1);
+                border-radius: 10px;
+                cursor: pointer;
+                text-align: center
+            }
+
+                .landing-root .landing-main .landing-main-btns-wrap .landing-main-btn p {
+                    font-family: Montserrat Semibold;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 22px;
+                    color: #fff
+                }
+
+@media screen and (max-width:1200px) {
+    .landing-root {
+        background-image: url(../sample-data/background.90008f25.png)
+    }
+}
+
+@media screen and (max-width:560px) {
+    .landing-root .landing-main .landing-main-title-wrap p {
+        font-size: 40px
+    }
+
+    .landing-root .landing-main .landing-main-help-text-wrap p {
+        font-size: 16px
+    }
+}
+
+@media screen and (max-width:465px) {
+    .landing-root .landing-main .landing-main-btns-wrap {
+        flex-direction: column
+    }
+
+        .landing-root .landing-main .landing-main-btns-wrap .landing-main-btn {
+            margin: 15px
+        }
+}
+
+.landing-header {
+    padding: 25px 10%;
+    display: flex;
+    flex-direction: row
+}
+
+    .landing-header .landing-header-nav-wrap {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: default
+    }
+
+        .landing-header .landing-header-nav-wrap .landing-header-nav-text {
+            font-family: Montserrat Medium;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            color: #fff
+        }
+
+.landing-header-poper {
+    margin-top: 10px;
+    background: rgba(0,0,0,.2);
+    border-radius: 10px;
+    overflow: hidden
+}
+
+    .landing-header-poper .tooltip {
+        display: flex;
+        flex-direction: column
+    }
+
+        .landing-header-poper .tooltip .tooltip-item {
+            display: flex;
+            flex-direction: row;
+            text-decoration: none;
+            padding: 13px 20px;
+            align-items: center
+        }
+
+            .landing-header-poper .tooltip .tooltip-item:hover {
+                background: hsla(0,0%,100%,.1)
+            }
+
+            .landing-header-poper .tooltip .tooltip-item p {
+                margin-left: 10px;
+                font-family: Montserrat SemiBold;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                color: #fff
+            }
+
+.landing-footer {
+    margin-top: auto;
+    padding: 32px 15%
+}
+
+    .landing-footer .landing-footer-item-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center
+    }
+
+        .landing-footer .landing-footer-item-wrap .landing-footer-item-title {
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 22px;
+            color: #fff;
+            margin-bottom: 4px
+        }
+
+        .landing-footer .landing-footer-item-wrap .landing-footer-item-value {
+            font-family: Montserrat Bold;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 30px;
+            color: #fff
+        }
+
+@media screen and (max-width:812px) {
+    .landing-footer {
+        padding: 32px 10%
     }
 }

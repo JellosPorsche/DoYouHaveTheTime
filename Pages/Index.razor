@@ -1,52 +1,720 @@
 ﻿@page "/"
 @inject HttpClient Http
 
-    <audio id="audio" src="sample-data/stellar.mp3" autoplay="false"></audio>
-    <div style="text-align:center">
-        <a class="hover_image" href="#">
-            <!-- path/to/first/visible/image: -->
-            <img onclick="document.getElementById('audio').play()" style="margin-left: auto; margin-right: auto; width: 20vw; min-width: 250px;" src="sample-data/porsche_1.png" />
-            <!-- path/to/hover/visible/image: -->
-            <img onclick="document.getElementById('audio').play()" style="margin-left: auto; margin-right: auto; width: 20vw; min-width: 250px;" src="sample-data/porsche_2.png" class="hide" />
-        </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>Wonderland</title>
+    <link href="index_files/main.css" rel="stylesheet">
+    <style data-styled="active" data-styled-version="5.2.0"></style>
+    <style data-jss="" data-meta="MuiSvgIcon">
+        .MuiSvgIcon-root {
+            fill: currentColor;
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            font-size: 1.5rem;
+            transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            flex-shrink: 0;
+            -moz-user-select: none;
+        }
+
+        .MuiSvgIcon-colorPrimary {
+            color: #3f51b5;
+        }
+
+        .MuiSvgIcon-colorSecondary {
+            color: #f50057;
+        }
+
+        .MuiSvgIcon-colorAction {
+            color: rgba(0, 0, 0, 0.54);
+        }
+
+        .MuiSvgIcon-colorError {
+            color: #f44336;
+        }
+
+        .MuiSvgIcon-colorDisabled {
+            color: rgba(0, 0, 0, 0.26);
+        }
+
+        .MuiSvgIcon-fontSizeInherit {
+            font-size: inherit;
+        }
+
+        .MuiSvgIcon-fontSizeSmall {
+            font-size: 1.25rem;
+        }
+
+        .MuiSvgIcon-fontSizeLarge {
+            font-size: 2.1875rem;
+        }
+    </style>
+    <style data-jss="" data-meta="MuiGrid">
+        .MuiGrid-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        }
+
+        .MuiGrid-item {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .MuiGrid-zeroMinWidth {
+            min-width: 0;
+        }
+
+        .MuiGrid-direction-xs-column {
+            flex-direction: column;
+        }
+
+        .MuiGrid-direction-xs-column-reverse {
+            flex-direction: column-reverse;
+        }
+
+        .MuiGrid-direction-xs-row-reverse {
+            flex-direction: row-reverse;
+        }
+
+        .MuiGrid-wrap-xs-nowrap {
+            flex-wrap: nowrap;
+        }
+
+        .MuiGrid-wrap-xs-wrap-reverse {
+            flex-wrap: wrap-reverse;
+        }
+
+        .MuiGrid-align-items-xs-center {
+            align-items: center;
+        }
+
+        .MuiGrid-align-items-xs-flex-start {
+            align-items: flex-start;
+        }
+
+        .MuiGrid-align-items-xs-flex-end {
+            align-items: flex-end;
+        }
+
+        .MuiGrid-align-items-xs-baseline {
+            align-items: baseline;
+        }
+
+        .MuiGrid-align-content-xs-center {
+            align-content: center;
+        }
+
+        .MuiGrid-align-content-xs-flex-start {
+            align-content: flex-start;
+        }
+
+        .MuiGrid-align-content-xs-flex-end {
+            align-content: flex-end;
+        }
+
+        .MuiGrid-align-content-xs-space-between {
+            align-content: space-between;
+        }
+
+        .MuiGrid-align-content-xs-space-around {
+            align-content: space-around;
+        }
+
+        .MuiGrid-justify-content-xs-center {
+            justify-content: center;
+        }
+
+        .MuiGrid-justify-content-xs-flex-end {
+            justify-content: flex-end;
+        }
+
+        .MuiGrid-justify-content-xs-space-between {
+            justify-content: space-between;
+        }
+
+        .MuiGrid-justify-content-xs-space-around {
+            justify-content: space-around;
+        }
+
+        .MuiGrid-justify-content-xs-space-evenly {
+            justify-content: space-evenly;
+        }
+
+        .MuiGrid-spacing-xs-1 {
+            width: calc(100% + 8px);
+            margin: -4px;
+        }
+
+            .MuiGrid-spacing-xs-1 > .MuiGrid-item {
+                padding: 4px;
+            }
+
+        .MuiGrid-spacing-xs-2 {
+            width: calc(100% + 16px);
+            margin: -8px;
+        }
+
+            .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+                padding: 8px;
+            }
+
+        .MuiGrid-spacing-xs-3 {
+            width: calc(100% + 24px);
+            margin: -12px;
+        }
+
+            .MuiGrid-spacing-xs-3 > .MuiGrid-item {
+                padding: 12px;
+            }
+
+        .MuiGrid-spacing-xs-4 {
+            width: calc(100% + 32px);
+            margin: -16px;
+        }
+
+            .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+                padding: 16px;
+            }
+
+        .MuiGrid-spacing-xs-5 {
+            width: calc(100% + 40px);
+            margin: -20px;
+        }
+
+            .MuiGrid-spacing-xs-5 > .MuiGrid-item {
+                padding: 20px;
+            }
+
+        .MuiGrid-spacing-xs-6 {
+            width: calc(100% + 48px);
+            margin: -24px;
+        }
+
+            .MuiGrid-spacing-xs-6 > .MuiGrid-item {
+                padding: 24px;
+            }
+
+        .MuiGrid-spacing-xs-7 {
+            width: calc(100% + 56px);
+            margin: -28px;
+        }
+
+            .MuiGrid-spacing-xs-7 > .MuiGrid-item {
+                padding: 28px;
+            }
+
+        .MuiGrid-spacing-xs-8 {
+            width: calc(100% + 64px);
+            margin: -32px;
+        }
+
+            .MuiGrid-spacing-xs-8 > .MuiGrid-item {
+                padding: 32px;
+            }
+
+        .MuiGrid-spacing-xs-9 {
+            width: calc(100% + 72px);
+            margin: -36px;
+        }
+
+            .MuiGrid-spacing-xs-9 > .MuiGrid-item {
+                padding: 36px;
+            }
+
+        .MuiGrid-spacing-xs-10 {
+            width: calc(100% + 80px);
+            margin: -40px;
+        }
+
+            .MuiGrid-spacing-xs-10 > .MuiGrid-item {
+                padding: 40px;
+            }
+
+        .MuiGrid-grid-xs-auto {
+            flex-grow: 0;
+            max-width: none;
+            flex-basis: auto;
+        }
+
+        .MuiGrid-grid-xs-true {
+            flex-grow: 1;
+            max-width: 100%;
+            flex-basis: 0;
+        }
+
+        .MuiGrid-grid-xs-1 {
+            flex-grow: 0;
+            max-width: 8.333333%;
+            flex-basis: 8.333333%;
+        }
+
+        .MuiGrid-grid-xs-2 {
+            flex-grow: 0;
+            max-width: 16.666667%;
+            flex-basis: 16.666667%;
+        }
+
+        .MuiGrid-grid-xs-3 {
+            flex-grow: 0;
+            max-width: 25%;
+            flex-basis: 25%;
+        }
+
+        .MuiGrid-grid-xs-4 {
+            flex-grow: 0;
+            max-width: 33.333333%;
+            flex-basis: 33.333333%;
+        }
+
+        .MuiGrid-grid-xs-5 {
+            flex-grow: 0;
+            max-width: 41.666667%;
+            flex-basis: 41.666667%;
+        }
+
+        .MuiGrid-grid-xs-6 {
+            flex-grow: 0;
+            max-width: 50%;
+            flex-basis: 50%;
+        }
+
+        .MuiGrid-grid-xs-7 {
+            flex-grow: 0;
+            max-width: 58.333333%;
+            flex-basis: 58.333333%;
+        }
+
+        .MuiGrid-grid-xs-8 {
+            flex-grow: 0;
+            max-width: 66.666667%;
+            flex-basis: 66.666667%;
+        }
+
+        .MuiGrid-grid-xs-9 {
+            flex-grow: 0;
+            max-width: 75%;
+            flex-basis: 75%;
+        }
+
+        .MuiGrid-grid-xs-10 {
+            flex-grow: 0;
+            max-width: 83.333333%;
+            flex-basis: 83.333333%;
+        }
+
+        .MuiGrid-grid-xs-11 {
+            flex-grow: 0;
+            max-width: 91.666667%;
+            flex-basis: 91.666667%;
+        }
+
+        .MuiGrid-grid-xs-12 {
+            flex-grow: 0;
+            max-width: 100%;
+            flex-basis: 100%;
+        }
+    </style>
+    <style data-jss="" data-meta="MuiBox"></style>
+    <style data-jss="" data-meta="MuiBox"></style>
+    <style data-jss="" data-meta="MuiTypography">
+        .MuiTypography-root {
+            margin: 0;
+        }
+
+        .MuiTypography-body2 {
+            font-size: 0.875rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            line-height: 1.43;
+            letter-spacing: 0.01071em;
+        }
+
+        .MuiTypography-body1 {
+            font-size: 1rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: 0.00938em;
+        }
+
+        .MuiTypography-caption {
+            font-size: 0.75rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            line-height: 1.66;
+            letter-spacing: 0.03333em;
+        }
+
+        .MuiTypography-button {
+            font-size: 0.875rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 500;
+            line-height: 1.75;
+            letter-spacing: 0.02857em;
+            text-transform: uppercase;
+        }
+
+        .MuiTypography-h1 {
+            font-size: 6rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 300;
+            line-height: 1.167;
+            letter-spacing: -0.01562em;
+        }
+
+        .MuiTypography-h2 {
+            font-size: 3.75rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: -0.00833em;
+        }
+
+        .MuiTypography-h3 {
+            font-size: 3rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            line-height: 1.167;
+            letter-spacing: 0em;
+        }
+
+        .MuiTypography-h4 {
+            font-size: 2.125rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            line-height: 1.235;
+            letter-spacing: 0.00735em;
+        }
+
+        .MuiTypography-h5 {
+            font-size: 1.5rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            line-height: 1.334;
+            letter-spacing: 0em;
+        }
+
+        .MuiTypography-h6 {
+            font-size: 1.25rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 500;
+            line-height: 1.6;
+            letter-spacing: 0.0075em;
+        }
+
+        .MuiTypography-subtitle1 {
+            font-size: 1rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            line-height: 1.75;
+            letter-spacing: 0.00938em;
+        }
+
+        .MuiTypography-subtitle2 {
+            font-size: 0.875rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 500;
+            line-height: 1.57;
+            letter-spacing: 0.00714em;
+        }
+
+        .MuiTypography-overline {
+            font-size: 0.75rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            line-height: 2.66;
+            letter-spacing: 0.08333em;
+            text-transform: uppercase;
+        }
+
+        .MuiTypography-srOnly {
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .MuiTypography-alignLeft {
+            text-align: left;
+        }
+
+        .MuiTypography-alignCenter {
+            text-align: center;
+        }
+
+        .MuiTypography-alignRight {
+            text-align: right;
+        }
+
+        .MuiTypography-alignJustify {
+            text-align: justify;
+        }
+
+        .MuiTypography-noWrap {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .MuiTypography-gutterBottom {
+            margin-bottom: 0.35em;
+        }
+
+        .MuiTypography-paragraph {
+            margin-bottom: 16px;
+        }
+
+        .MuiTypography-colorInherit {
+            color: inherit;
+        }
+
+        .MuiTypography-colorPrimary {
+            color: #3f51b5;
+        }
+
+        .MuiTypography-colorSecondary {
+            color: #f50057;
+        }
+
+        .MuiTypography-colorTextPrimary {
+            color: rgba(0, 0, 0, 0.87);
+        }
+
+        .MuiTypography-colorTextSecondary {
+            color: rgba(0, 0, 0, 0.54);
+        }
+
+        .MuiTypography-colorError {
+            color: #f44336;
+        }
+
+        .MuiTypography-displayInline {
+            display: inline;
+        }
+
+        .MuiTypography-displayBlock {
+            display: block;
+        }
+    </style>
+    <style data-jss="" data-meta="MuiLink">
+        .MuiLink-underlineNone {
+            text-decoration: none;
+        }
+
+        .MuiLink-underlineHover {
+            text-decoration: none;
+        }
+
+            .MuiLink-underlineHover:hover {
+                text-decoration: underline;
+            }
+
+        .MuiLink-underlineAlways {
+            text-decoration: underline;
+        }
+
+        .MuiLink-button {
+            border: 0;
+            cursor: pointer;
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            position: relative;
+            border-radius: 0;
+            vertical-align: middle;
+            -moz-appearance: none;
+            -moz-user-select: none;
+            background-color: transparent;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+            .MuiLink-button::-moz-focus-inner {
+                border-style: none;
+            }
+
+            .MuiLink-button.Mui-focusVisible {
+                outline: auto;
+            }
+    </style>
+</head>
+<body wfd-invisible="true">
+    <noscript wfd-invisible="true">You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="landing-root">
+            <div class="landing-header">
+                <div class="landing-header-nav-wrap">
+                    <div class="MuiBox-root jss1">
+                        <button class="trans-button" @onclick="SetBlackSheep">
+                            <p class="landing-header-nav-text">BlackSheep</p>
+                        </button>
+                    </div>
+                    <div class="MuiBox-root jss1">
+                        <button class="trans-button" @onclick="SetSearyb">
+                            <p class="landing-header-nav-text">Searyb</p>
+                        </button>
+                    </div>
+                    <div class="MuiBox-root jss1">
+                        <button class="trans-button" @onclick="SetFoshi">
+                            <p class="landing-header-nav-text">Foshi</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="landing-main">
+                <div class="landing-main-title-wrap">
+                    <p>Inital investment</p>
+                    <p><span class='smaller'>@initial_usd_display for @initial_time TIME</span></p>
+
+                    <p>Current Rebase Rewards</p>
+                    <p><span class='smaller'>@cur_rebase_amt TIME</span></p>
+
+                    <p>Current Initial Value</p>
+                    <p><span class='smaller'>@cur_initial_value_display</span></p>
+
+                    <p>Current Rebase Value</p>
+                    <p><span class='smaller'>@cur_rebase_value_display</span></p>
+
+                    <p>Total Value</p>
+                    <p><span class='smaller'>@time_balanceUSD_display</span></p>
+
+                    <p>Total Profit</p>
+                    <p><span class='smaller'>@time_profitUSD_display</span></p>
+                </div>
+                @*<div class="landing-main-help-text-wrap">
+                    <p>Financial tools to grow your wealth - stake and earn</p>
+                    <p>compounding interest on the Avalanche Network</p>
+                </div>*@
+                @*<div class="landing-main-btns-wrap">
+                    <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://app.wonderland.money/" target="_blank" rel="noreferrer">
+                        <div class="landing-main-btn">
+                            <p>Enter App</p>
+                        </div>
+                    </a>
+                    <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://wonderland.gitbook.io/wonderland/" target="_blank" rel="noreferrer">
+                        <div class="landing-main-btn">
+                            <p>Documentation</p>
+                        </div>
+                    </a>
+                </div>*@
+            </div>
+            @*<div class="landing-footer">
+                <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 MuiGrid-grid-lg-4">
+                        <div class="landing-footer-item-wrap">
+                            <p class="landing-footer-item-title">Total Staked</p>
+                            <p class="landing-footer-item-value">99,631</p>
+                        </div>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 MuiGrid-grid-lg-4">
+                        <div class="landing-footer-item-wrap">
+                            <p class="landing-footer-item-title">Treasury Balance</p>
+                            <p class="landing-footer-item-value">$191,260,618</p>
+                        </div>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 MuiGrid-grid-lg-4">
+                        <div class="landing-footer-item-wrap">
+                            <p class="landing-footer-item-title">Current APY</p>
+                            <p class="landing-footer-item-value">$@time_price</p>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        </div>
     </div>
+</body>
+</html>
 
-    <h1 style="text-align:center">If Jello had spent <span style="color: green">$9,000</span> on XLM when it was <span style="color: green">$0.045</span> instead of his Porsche Cayenne,</h1>
-    <h1 style="text-align:center">he would now have:</h1>
+
+@code 
+{ 
+    private decimal? initial_usd;
+    private string initial_usd_display;
+    private decimal? initial_time;
+    private decimal? cur_rebase_amt;
+    private decimal? cur_initial_value;
+    private string cur_initial_value_display;
+    private decimal? cur_rebase_value;
+    private string cur_rebase_value_display;
+    private decimal? time_price;
+    private decimal? time_balance;
+    private decimal? time_balanceUSD;
+    private string time_balanceUSD_display;
+    private string time_profitUSD_display;
 
 
-    @if (@lost_profit_str == null)
+    protected override async Task OnInitializedAsync()
     {
-        <p><em>Loading...</em></p>
+        await SetBlackSheep();
     }
-    else
+
+    private async Task SetBlackSheep()
     {
-        <h1 style="text-align: center; padding-bottom: 100px; color: green">@lost_profit_str</h1>
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0xc80E9156f6cF59D9447D387C69AC00Ea6860a141&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+
+        SetPageValues(data, "0xc80e9156f6cf59d9447d387c69ac00ea6860a141", new decimal(20000), new decimal(2.801187342));
     }
 
-    @if (@xml_price == null)
+    private async Task SetSearyb()
     {
-        <p><em>Loading...</em></p>
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x5bC50F04B444a65a3D597ca4ae51A65389a81Fc7&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+
+        // Searyb supposedly paid 388 but lost $50 in various fees
+        SetPageValues(data, "0x5bc50f04b444a65a3d597ca4ae51a65389a81fc7", new decimal(325), new decimal(0.041898446));
     }
-    else
+
+    private async Task SetFoshi()
     {
-        <h1 style="text-align:center">Current XLM price: <span style="color: green">$@xml_price.USD</span></h1>
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x6Cf65CF30f3DBc02c79A299CE67aa23b46dd0F7b&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+
+        // FoShi paid 750 but lost like $25 in various fees
+        SetPageValues(data, "0x6cf65cf30f3dbc02c79a299ce67aa23b46dd0f7b", new decimal(725), new decimal(0.10383072));
     }
 
+    private void SetPageValues(System.Text.Json.JsonElement data, string ava_addr, decimal init_usd, decimal? init_time)
+    {
+        initial_usd = init_usd;
+        initial_usd_display = Convert.ToDouble(init_usd).ToString("C");
+        initial_usd_display = initial_usd_display.Substring(0, initial_usd_display.Length - 3);
+        initial_time = init_time;
 
+        Console.WriteLine(ava_addr);
+        Console.WriteLine(data);
 
-    @code {
-        private Price xml_price;
-        private string lost_profit_str;
+        time_price = data.GetProperty(ava_addr)
+        .GetProperty("products")[0]
+        .GetProperty("assets")[0]
+        .GetProperty("tokens")[0]
+        .GetProperty("price").GetDecimal();
 
-        protected override async Task OnInitializedAsync()
-        {
-            xml_price = await Http.GetFromJsonAsync<Price>("https://min-api.cryptocompare.com/data/price?fsym=XLM&tsyms=USD");
-            lost_profit_str = (Convert.ToDouble(xml_price.USD) * 200000.0).ToString("C2");
-        }
+        time_balance = data.GetProperty(ava_addr)
+            .GetProperty("products")[0]
+            .GetProperty("assets")[0]
+            .GetProperty("tokens")[0]
+            .GetProperty("balance").GetDecimal();
 
-        public class Price
-        {
-            public decimal USD { get; set; } = 0;
-        }
+        cur_rebase_amt = time_balance - initial_time;
+
+        cur_initial_value = initial_time * time_price;
+        cur_initial_value_display = Convert.ToDouble(cur_initial_value).ToString("C2");
+
+        cur_rebase_value = cur_rebase_amt * time_price;
+        cur_rebase_value_display = Convert.ToDouble(cur_rebase_value).ToString("C2");
+
+        time_balanceUSD = data.GetProperty(ava_addr)
+            .GetProperty("products")[0]
+            .GetProperty("assets")[0]
+            .GetProperty("tokens")[0]
+            .GetProperty("balanceUSD").GetDecimal();
+
+        time_profitUSD_display = Convert.ToDouble(time_balanceUSD - initial_usd).ToString("C2");
+        time_balanceUSD_display = Convert.ToDouble(time_balanceUSD).ToString("C2");
     }
+}
