@@ -568,73 +568,78 @@
                     </div>
                 </div>
             </div>
-            <div class="landing-main">
-                <div class="landing-main-title-wrap">
-                    <p>Inital investment</p>
-                    <p><span class='smaller'>@initial_usd_display for @initial_time TIME</span></p>
 
-                    <p>Current Rebase Rewards</p>
-                    <p><span class='smaller'>@cur_rebase_amt TIME</span></p>
+            <div class="hide-scroll">
+                <div class="viewport">
+                    <div class="landing-main">
+                        <div class="landing-main-title-wrap">
+                            <p>Inital investment</p>
+                            <p><span class='smaller'>@initial_usd_display for @initial_time TIME</span></p>
 
-                    <p>Current Initial Value</p>
-                    <p><span class='smaller'>@cur_initial_value_display</span></p>
+                            <p>Current Rebase Rewards</p>
+                            <p><span class='smaller'>@cur_rebase_amt TIME</span></p>
 
-                    <p>Current Rebase Value</p>
-                    <p><span class='smaller'>@cur_rebase_value_display</span></p>
+                            <p>Current Initial Value</p>
+                            <p><span class='smaller'>@cur_initial_value_display</span></p>
 
-                    <p>Total Value</p>
-                    <p><span class='smaller'>@time_balanceUSD_display</span></p>
+                            <p>Current Rebase Value</p>
+                            <p><span class='smaller'>@cur_rebase_value_display</span></p>
 
-                    <p>Total Profit</p>
-                    <p><span class='smaller'>@time_profitUSD_display</span></p>
+                            <p>Total Value</p>
+                            <p><span class='smaller'>@time_balanceUSD_display</span></p>
+
+                            <p>Total Profit</p>
+                            <p><span class='smaller'>@time_profitUSD_display</span></p>
+                        </div>
+                    </div>
                 </div>
-                @*<div class="landing-main-help-text-wrap">
-                    <p>Financial tools to grow your wealth - stake and earn</p>
-                    <p>compounding interest on the Avalanche Network</p>
-                </div>*@
-                @*<div class="landing-main-btns-wrap">
-                    <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://app.wonderland.money/" target="_blank" rel="noreferrer">
-                        <div class="landing-main-btn">
-                            <p>Enter App</p>
+                        @*<div class="landing-main-help-text-wrap">
+                        <p>Financial tools to grow your wealth - stake and earn</p>
+                        <p>compounding interest on the Avalanche Network</p>
+                    </div>*@
+                        @*<div class="landing-main-btns-wrap">
+                        <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://app.wonderland.money/" target="_blank" rel="noreferrer">
+                            <div class="landing-main-btn">
+                                <p>Enter App</p>
+                            </div>
+                        </a>
+                        <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://wonderland.gitbook.io/wonderland/" target="_blank" rel="noreferrer">
+                            <div class="landing-main-btn">
+                                <p>Documentation</p>
+                            </div>
+                        </a>
+                    </div>*@
+                    </div>
+                    @*<div class="landing-footer">
+                    <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1">
+                        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 MuiGrid-grid-lg-4">
+                            <div class="landing-footer-item-wrap">
+                                <p class="landing-footer-item-title">Total Staked</p>
+                                <p class="landing-footer-item-value">99,631</p>
+                            </div>
                         </div>
-                    </a>
-                    <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://wonderland.gitbook.io/wonderland/" target="_blank" rel="noreferrer">
-                        <div class="landing-main-btn">
-                            <p>Documentation</p>
+                        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 MuiGrid-grid-lg-4">
+                            <div class="landing-footer-item-wrap">
+                                <p class="landing-footer-item-title">Treasury Balance</p>
+                                <p class="landing-footer-item-value">$191,260,618</p>
+                            </div>
                         </div>
-                    </a>
+                        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 MuiGrid-grid-lg-4">
+                            <div class="landing-footer-item-wrap">
+                                <p class="landing-footer-item-title">Current APY</p>
+                                <p class="landing-footer-item-value">$@time_price</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>*@
+                </div>
             </div>
-            @*<div class="landing-footer">
-                <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1">
-                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 MuiGrid-grid-lg-4">
-                        <div class="landing-footer-item-wrap">
-                            <p class="landing-footer-item-title">Total Staked</p>
-                            <p class="landing-footer-item-value">99,631</p>
-                        </div>
-                    </div>
-                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 MuiGrid-grid-lg-4">
-                        <div class="landing-footer-item-wrap">
-                            <p class="landing-footer-item-title">Treasury Balance</p>
-                            <p class="landing-footer-item-value">$191,260,618</p>
-                        </div>
-                    </div>
-                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 MuiGrid-grid-lg-4">
-                        <div class="landing-footer-item-wrap">
-                            <p class="landing-footer-item-title">Current APY</p>
-                            <p class="landing-footer-item-value">$@time_price</p>
-                        </div>
-                    </div>
-                </div>
-            </div>*@
-        </div>
-    </div>
 </body>
 </html>
 
 
-@code 
-{ 
+@code
+{
     private decimal? initial_usd;
     private string initial_usd_display;
     private decimal? initial_time;
