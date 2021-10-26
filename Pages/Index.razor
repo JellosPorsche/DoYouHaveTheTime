@@ -562,6 +562,11 @@
                         </button>
                     </div>
                     <div class="MuiBox-root jss1">
+                        <button class="trans-button" @onclick="SetTesko">
+                            <p class="landing-header-nav-text">Tesko</p>
+                        </button>
+                    </div>
+                    <div class="MuiBox-root jss1">
                         <button class="trans-button" @onclick="SetFoshi">
                             <p class="landing-header-nav-text">Foshi</p>
                         </button>
@@ -693,6 +698,13 @@
         System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x51D17749F03d92cA7761939f6b8A9C63d5B3E6A2&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
         SetPageValues(data, "0x51d17749f03d92ca7761939f6b8a9c63d5b3e6a2", new decimal(595), new decimal(0.072326132));
+    }
+
+    private async Task SetTesko()
+    {
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x6dB5d777D92F83BF8eB77567de6c1Ff0B712B410&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+
+        SetPageValues(data, "0x6db5d777d92f83bf8eb77567de6c1ff0b712b410", new decimal(150), new decimal(0.018364249));
     }
 
     private void SetPageValues(System.Text.Json.JsonElement data, string ava_addr, decimal init_usd, decimal? init_time)
