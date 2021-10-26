@@ -690,9 +690,9 @@
 
     private async Task SetJello()
     {
-        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0xfD424E31272f4857d333D8adb5865CB35e5676C0&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x51D17749F03d92cA7761939f6b8A9C63d5B3E6A2&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
-        SetPageValues(data, "0xfd424e31272f4857d333d8adb5865cb35e5676c0", new decimal(595), new decimal(0.072326132));
+        SetPageValues(data, "0x51d17749f03d92ca7761939f6b8a9c63d5b3e6a2", new decimal(595), new decimal(0.072326132));
     }
 
     private void SetPageValues(System.Text.Json.JsonElement data, string ava_addr, decimal init_usd, decimal? init_time)
