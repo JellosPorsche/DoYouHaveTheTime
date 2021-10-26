@@ -566,6 +566,11 @@
                             <p class="landing-header-nav-text">Foshi</p>
                         </button>
                     </div>
+                    <div class="MuiBox-root jss1">
+                        <button class="trans-button" @onclick="SetJello">
+                            <p class="landing-header-nav-text">Jello</p>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -681,6 +686,13 @@
 
         // FoShi paid 750 but lost like $25 in various fees
         SetPageValues(data, "0x6cf65cf30f3dbc02c79a299ce67aa23b46dd0f7b", new decimal(725), new decimal(0.10383072));
+    }
+
+    private async Task SetJello()
+    {
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0xfD424E31272f4857d333D8adb5865CB35e5676C0&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+
+        SetPageValues(data, "0xfd424e31272f4857d333d8adb5865cb35e5676c0", new decimal(595), new decimal(0.072326132));
     }
 
     private void SetPageValues(System.Text.Json.JsonElement data, string ava_addr, decimal init_usd, decimal? init_time)
