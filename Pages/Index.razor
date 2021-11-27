@@ -690,7 +690,7 @@
         System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x6Cf65CF30f3DBc02c79A299CE67aa23b46dd0F7b&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
         // FoShi paid 750 but lost like $25 in various fees
-        SetPageValues(data, "0x6cf65cf30f3dbc02c79a299ce67aa23b46dd0f7b", new decimal(725), new decimal(0.10383072));
+        SetPageValues(data, "0x6cf65cf30f3dbc02c79a299ce67aa23b46dd0f7b", new decimal(1450), new decimal(0.204674491));
     }
 
     private async Task SetJello()
