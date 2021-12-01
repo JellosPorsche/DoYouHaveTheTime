@@ -1866,9 +1866,13 @@ p {
 
     .landing-header .landing-header-nav-wrap {
         margin-left: auto;
-        display: flex;
         flex-direction: column;
         align-items: center;
+        display: inline-grid;
+        grid-template-rows: 25px 25px 25px;
+        grid-template-columns: 100px 100px 100px;
+        grid-gap: 3px;
+        justify-items: center;
         cursor: default
     }
 
