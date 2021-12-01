@@ -721,7 +721,7 @@
     {
         System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x0B241c89ae00A7478F55C6E07D611E8613CB060b&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
-        SetPageValues(data, "0x0b241c89ae00a7478f55C6e07d611e8613cb060b", new decimal(468), new decimal(0.057768772));
+        SetPageValues(data, "0x0b241c89ae00a7478f55c6e07d611e8613cb060b", new decimal(468), new decimal(0.057768772));
     }
 
     private async Task SetTesko()
