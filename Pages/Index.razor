@@ -576,6 +576,11 @@
                             <p class="landing-header-nav-text">Jello</p>
                         </button>
                     </div>
+                    <div class="MuiBox-root jss1">
+                        <button class="trans-button" @onclick="SetLord">
+                            <p class="landing-header-nav-text">Lord</p>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -698,6 +703,13 @@
         System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x51D17749F03d92cA7761939f6b8A9C63d5B3E6A2&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
         SetPageValues(data, "0x51d17749f03d92ca7761939f6b8a9c63d5b3e6a2", new decimal(595), new decimal(0.072326132));
+    }
+
+    private async Task SetLord()
+    {
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x3975a463cc268FBfa9d712114985405825e034B2&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+
+        SetPageValues(data, "0x3975a463cc268fbfa9d712114985405825e034b2", new decimal(4692), new decimal(0.576949492));
     }
 
     private async Task SetTesko()
