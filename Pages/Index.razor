@@ -754,10 +754,10 @@
             .GetProperty("balance").GetDecimal();
 
         // BlackSheep's Abra loan offset
-        if (ava_addr == "0xc80e9156f6cf59d9447d387c69ac00ea6860a141")
-        {
-            time_balance += new decimal(4.756646217);
-        }
+        //if (ava_addr == "0xc80e9156f6cf59d9447d387c69ac00ea6860a141")
+        //{
+            //time_balance += new decimal(4.756646217);
+        //}
 
         cur_rebase_amt = time_balance - initial_time;
 
@@ -774,10 +774,10 @@
             .GetProperty("balanceUSD").GetDecimal();
 
         // BlackSheep's Abra loan offset
-        if (ava_addr == "0xc80e9156f6cf59d9447d387c69ac00ea6860a141")
-        {
-            time_balanceUSD = time_balance * time_price;
-        }
+        //if (ava_addr == "0xc80e9156f6cf59d9447d387c69ac00ea6860a141")
+        //{
+            //time_balanceUSD = time_balance * time_price;
+        //}
 
         time_profitUSD_display = Convert.ToDouble(time_balanceUSD - initial_usd).ToString("C2");
         time_balanceUSD_display = Convert.ToDouble(time_balanceUSD).ToString("C2");
