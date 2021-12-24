@@ -586,6 +586,11 @@
                             <p class="landing-header-nav-text">Vyvy</p>
                         </button>
                     </div>
+                    <div class="MuiBox-root jss1">
+                        <button class="trans-button" @onclick="SetSav">
+                            <p class="landing-header-nav-text">Sav</p>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -724,6 +729,13 @@
         SetPageValues(data, "0x0b241c89ae00a7478f55c6e07d611e8613cb060b", new decimal(468), new decimal(0.057768772));
     }
 
+    private async Task SetSav()
+    {
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x27654c24c8C5C3D54196E3B52305214FEfaB7E5A&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+
+        SetPageValues(data, "0x27654c24c8c5c3d54196e3b52305214fefab7e5a", new decimal(988), new decimal(0.23056672));
+    }
+
     private async Task SetTesko()
     {
         System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x6dB5d777D92F83BF8eB77567de6c1Ff0B712B410&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
@@ -756,7 +768,7 @@
         // BlackSheep's Abra loan offset
         //if (ava_addr == "0xc80e9156f6cf59d9447d387c69ac00ea6860a141")
         //{
-            //time_balance += new decimal(4.756646217);
+        //time_balance += new decimal(4.756646217);
         //}
 
         cur_rebase_amt = time_balance - initial_time;
@@ -776,7 +788,7 @@
         // BlackSheep's Abra loan offset
         //if (ava_addr == "0xc80e9156f6cf59d9447d387c69ac00ea6860a141")
         //{
-            //time_balanceUSD = time_balance * time_price;
+        //time_balanceUSD = time_balance * time_price;
         //}
 
         time_profitUSD_display = Convert.ToDouble(time_balanceUSD - initial_usd).ToString("C2");
