@@ -740,7 +740,7 @@
     {
         System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x6dB5d777D92F83BF8eB77567de6c1Ff0B712B410&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
-        SetPageValues(data, "0x6db5d777d92f83bf8eb77567de6c1ff0b712b410", new decimal(150), new decimal(0.018364249));
+        SetPageValues(data, "0x6db5d777d92f83bf8eb77567de6c1ff0b712b410", new decimal(362), new decimal(0.101364249));
     }
 
     private void SetPageValues(System.Text.Json.JsonElement data, string ava_addr, decimal init_usd, decimal? init_time)
