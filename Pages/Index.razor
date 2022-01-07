@@ -753,11 +753,29 @@
         Console.WriteLine(ava_addr);
         Console.WriteLine(data);
 
-        time_price = data.GetProperty(ava_addr)
-        .GetProperty("products")[0]
-        .GetProperty("assets")[0]
-        .GetProperty("tokens")[0]
-        .GetProperty("price").GetDecimal();
+        string wl_label = data.GetProperty(ava_addr)
+                .GetProperty("products")[0]
+                .GetProperty("assets")[0]
+                .GetProperty("tokens")[0]
+                .GetProperty("label").ToString();
+        if (wl_label == "Wrapped MEMOries")
+        {
+            time_price = data.GetProperty(ava_addr)
+                .GetProperty("products")[0]
+                .GetProperty("assets")[0]
+                .GetProperty("tokens")[0]
+                .GetProperty("tokens")[0]
+                .GetProperty("price").GetDecimal();
+        }
+        else
+        {
+            time_price = data.GetProperty(ava_addr)
+                .GetProperty("products")[0]
+                .GetProperty("assets")[0]
+                .GetProperty("tokens")[0]
+                .GetProperty("price").GetDecimal();
+        }
+
 
         time_balance = data.GetProperty(ava_addr)
             .GetProperty("products")[0]
