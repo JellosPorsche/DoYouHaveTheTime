@@ -765,6 +765,14 @@
             .GetProperty("tokens")[0]
             .GetProperty("balance").GetDecimal();
 
+        // wMemo balance
+        time_balance += data.GetProperty(ava_addr)
+            .GetProperty("products")[0]
+            .GetProperty("assets")[0]
+            .GetProperty("tokens")[0]
+            .GetProperty("tokens")[0]
+            .GetProperty("balance").GetDecimal();
+
         // BlackSheep's Abra loan offset
         //if (ava_addr == "0x482087beed7f765aa52d06f56e7949b509374b1c")
         //{
