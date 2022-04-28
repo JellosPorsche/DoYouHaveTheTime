@@ -682,14 +682,14 @@
 
     private async Task SetBlackSheep()
     {
-        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x482087beed7f765aa52d06f56e7949b509374b1c&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v2/apps/wonderland/balances?addresses%5B%5D=0x482087beed7f765aa52d06f56e7949b509374b1c&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
         SetPageValues(data, "0x482087beed7f765aa52d06f56e7949b509374b1c", new decimal(158883), new decimal(49.3207402876));
     }
 
     private async Task SetSearyb()
     {
-        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x5bC50F04B444a65a3D597ca4ae51A65389a81Fc7&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v2/apps/wonderland/balances?addresses%5B%5D=0x5bC50F04B444a65a3D597ca4ae51A65389a81Fc7&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
         // Searyb supposedly paid 388 but lost $50 in various fees.
         SetPageValues(data, "0x5bc50f04b444a65a3d597ca4ae51a65389a81fc7", new decimal(999), new decimal(0.340974111));
@@ -697,7 +697,7 @@
 
     private async Task SetFoshi()
     {
-        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x6Cf65CF30f3DBc02c79A299CE67aa23b46dd0F7b&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v2/apps/wonderland/balances?addresses%5B%5D=0x6Cf65CF30f3DBc02c79A299CE67aa23b46dd0F7b&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
         // FoShi paid 750 but lost like $25 in various fees
         SetPageValues(data, "0x6cf65cf30f3dbc02c79a299ce67aa23b46dd0f7b", new decimal(1450), new decimal(0.204674491));
@@ -705,7 +705,7 @@
 
     private async Task SetJello()
     {
-        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x51D17749F03d92cA7761939f6b8A9C63d5B3E6A2&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v2/apps/wonderland/balances?addresses%5B%5D=0x51D17749F03d92cA7761939f6b8A9C63d5B3E6A2&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
         SetPageValues(data, "0x51d17749f03d92ca7761939f6b8a9c63d5b3e6a2", new decimal(595), new decimal(0.072326132));
     }
@@ -719,21 +719,21 @@
 
     private async Task SetVyvy()
     {
-        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x0B241c89ae00A7478F55C6E07D611E8613CB060b&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v2/apps/wonderland/balances?addresses%5B%5D=0x0B241c89ae00A7478F55C6E07D611E8613CB060b&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
         SetPageValues(data, "0x0b241c89ae00a7478f55c6e07d611e8613cb060b", new decimal(468), new decimal(0.057768772));
     }
 
     private async Task SetSav()
     {
-        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x27654c24c8C5C3D54196E3B52305214FEfaB7E5A&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v2/apps/wonderland/balances?addresses%5B%5D=0x27654c24c8C5C3D54196E3B52305214FEfaB7E5A&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
         SetPageValues(data, "0x27654c24c8c5c3d54196e3b52305214fefab7e5a", new decimal(988), new decimal(0.23056672));
     }
 
     private async Task SetTesko()
     {
-        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v1/protocols/wonderland/balances?newBalances=true&addresses[]=0x6dB5d777D92F83BF8eB77567de6c1Ff0B712B410&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
+        System.Text.Json.JsonElement data = await Http.GetFromJsonAsync<System.Text.Json.JsonElement>("https://api.zapper.fi/v2/apps/wonderland/balances?addresses%5B%5D=0x6dB5d777D92F83BF8eB77567de6c1Ff0B712B410&network=avalanche&api_key=96e0cc51-a62e-42ca-acee-910ea7d2a241");
 
         SetPageValues(data, "0x6db5d777d92f83bf8eb77567de6c1ff0b712b410", new decimal(362), new decimal(0.101364249));
     }
@@ -748,14 +748,18 @@
         Console.WriteLine(ava_addr);
         Console.WriteLine(data);
 
-        string wl_label = data.GetProperty(ava_addr)
-                .GetProperty("products")[0]
-                .GetProperty("assets")[0]
-                .GetProperty("tokens")[0]
-                .GetProperty("label").ToString();
-        if (wl_label == "Wrapped MEMOries")
+        /*string TEST = data.GetProperty("balances").ToString();
+
+        string wl_label = data.GetProperty("balances")
+            .GetProperty(ava_addr)
+            .GetProperty("products")[0]
+            .GetProperty("assets")[0]
+            .GetProperty("tokens")[0]
+            .GetProperty("symbol").ToString();
+        if (wl_label == "wMEMO")
         {
-            time_price = data.GetProperty(ava_addr)
+            time_price = data.GetProperty("balances")
+                .GetProperty(ava_addr)
                 .GetProperty("products")[0]
                 .GetProperty("assets")[0]
                 .GetProperty("tokens")[0]
@@ -769,17 +773,26 @@
                 .GetProperty("assets")[0]
                 .GetProperty("tokens")[0]
                 .GetProperty("price").GetDecimal();
-        }
+        }*/
+
+        time_price = data.GetProperty("balances")
+                .GetProperty(ava_addr)
+                .GetProperty("products")[0]
+                .GetProperty("assets")[0]
+                .GetProperty("tokens")[0]
+                .GetProperty("tokens")[0]
+                .GetProperty("price").GetDecimal();
 
 
-        time_balance = data.GetProperty(ava_addr)
-            .GetProperty("products")[0]
-            .GetProperty("assets")[0]
-            .GetProperty("tokens")[0]
-            .GetProperty("balance").GetDecimal();
+        /*time_balance = data.GetProperty(ava_addr)
+        .GetProperty("products")[0]
+        .GetProperty("assets")[0]
+        .GetProperty("tokens")[0]
+        .GetProperty("balance").GetDecimal();*/
 
         // wMemo balance
-        time_balance += data.GetProperty(ava_addr)
+        time_balance = data.GetProperty("balances")
+            .GetProperty(ava_addr)
             .GetProperty("products")[0]
             .GetProperty("assets")[0]
             .GetProperty("tokens")[0]
@@ -800,7 +813,8 @@
         cur_rebase_value = cur_rebase_amt * time_price;
         cur_rebase_value_display = Convert.ToDouble(cur_rebase_value).ToString("C2");
 
-        time_balanceUSD = data.GetProperty(ava_addr)
+        time_balanceUSD = data.GetProperty("balances")
+            .GetProperty(ava_addr)
             .GetProperty("products")[0]
             .GetProperty("assets")[0]
             .GetProperty("tokens")[0]
